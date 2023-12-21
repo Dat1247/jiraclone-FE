@@ -21,12 +21,15 @@ import { notificationFunction } from "../../../utils/Notification/Notification";
 
 function* getAllProjectSaga(action) {
 	try {
+		yield put(showLoadingAction());
 		const { data } = yield call(() => cyberbugsService.getAllProject());
 
 		yield put({
 			type: GET_ALL_PROJECT,
 			arrAllProject: data.content,
 		});
+
+		yield put(hideLoadingAction());
 
 		yield put({
 			type: GET_USERS_BY_PROJECT_SAGA,
@@ -88,7 +91,7 @@ function* updateProjectSaga(action) {
 			return cyberbugsService.updateProject(action.projectUpdate);
 		});
 
-		yield notificationFunction("success", "Create project successfully!");
+		yield notificationFunction("success", "Update project successfully!");
 
 		yield put({
 			type: CLOSE_DRAWER,

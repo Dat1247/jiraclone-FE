@@ -202,7 +202,6 @@ export function* handleChangePostApi(action) {
 				name,
 				value,
 			});
-			console.log(result);
 			break;
 		}
 		case CHANGE_ASSIGNESS_TASK_MODAL: {
@@ -212,7 +211,6 @@ export function* handleChangePostApi(action) {
 				userSelect,
 			});
 
-			console.log(result);
 			break;
 		}
 
@@ -223,7 +221,6 @@ export function* handleChangePostApi(action) {
 				userId,
 			});
 
-			console.log(result);
 			break;
 		}
 
